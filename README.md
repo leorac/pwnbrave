@@ -59,7 +59,7 @@ Tabs that are already open get picked up automatically.
    choice sticks to the container, even across browser restarts.
 5. In Burp, with the PwnFox extension loaded, requests arrive already highlighted.
 
-![The same login page open in the Blue, Cyan and Yellow containers](assets/containers-in-tabs.png)
+![A tab in the Cyan container with the PwnBrave popup open](assets/containers-in-tabs.png)
 
 ### Colors
 
