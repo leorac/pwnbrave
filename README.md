@@ -37,8 +37,11 @@ highlight names, and the Burp side strips the header before forwarding the reque
 
    ![Containers enabled in Brave settings](assets/brave-containers-settings.png)
 
-2. Open `brave://extensions` and turn on Developer mode.
-3. Click Load unpacked and pick this folder.
+2. Download `pwnbrave-<version>.zip` from the
+   [latest release](https://github.com/leorac/pwnbrave/releases/latest) and
+   extract it somewhere it can stay.
+3. Open `brave://extensions` and turn on Developer mode.
+4. Click Load unpacked and pick the extracted `pwnbrave` folder.
 
 Tabs that are already open get picked up automatically.
 

@@ -2,21 +2,17 @@
 
 ## 0.4.0
 
-### Added
-- Tabs already open at install or update are identified automatically.
-- 16 px toolbar icon for sharper rendering at 1x.
-- Unit tests for the proxy address parser (`npm test`).
+Initial public release.
 
-### Changed
-- The proxy address is validated before it is stored; an invalid one is
-  reported and never saved.
-- The offscreen document is closed after it reports, and re-checked at every
-  browser start.
-- The action icon is refreshed when a tab finishes loading instead of on tab
-  switch, which also covers back/forward cache restores.
-
-### Fixed
-- Concurrent tab reports could lose updates, share a rule id or register a
-  container twice.
-- The status page rendered tab titles and URLs as HTML.
-- Messages from contexts other than the extension's own pages were accepted.
+- One color per Brave container, sent as `X-PwnFox-Color` so the PwnFox Burp
+  extension highlights requests per identity. Traffic outside containers is
+  never tagged.
+- Colors `blue`, `cyan`, `green`, `yellow`, `orange`, `red`, picked
+  automatically and editable from the popup, bound to the container across
+  browser restarts.
+- Profile-wide proxy switch, with an option to route localhost and 127.0.0.1 too.
+- Toolbar icon with a dot in the container's color.
+- Keyboard shortcuts for the next color, PwnBrave on/off and proxy on/off.
+- Container color exposed on the page root, so browser automation agents such as
+  Claude in Chrome can tell which container a tab is in.
+- Tabs already open at install are picked up automatically.
