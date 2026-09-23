@@ -1,4 +1,4 @@
-# PwnBrave
+# <img src="icons/icon.svg" width="30"> PwnBrave
 
 I've been a Firefox user for a long time, and for web testing
 [PwnFox](https://github.com/yeswehack/PwnFox) was one of the things I couldn't
