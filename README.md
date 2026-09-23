@@ -12,6 +12,8 @@ traffic outside containers is never tagged. It also drives the profile proxy.
 It works with the existing PwnFox Burp extension as is: the colors are Burp
 highlight names, and the Burp side strips the header before forwarding the request.
 
+![The PwnBrave popup](assets/popup.png)
+
 ## Limitations and considerations for Pwnfox users
 
 1. Containers cannot be created automatically when installing. Create them by hand in
