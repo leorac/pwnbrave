@@ -1,0 +1,198 @@
+:root {
+  --bg: #1b1d21;
+  --panel: #24272c;
+  --fg: #e6e6e6;
+  --muted: #9aa0a6;
+  --line: #34383f;
+  --accent: #6aa9ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 320px;
+  margin: 0;
+  padding: 10px 12px 12px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+h1 { font-size: 15px; margin: 0; letter-spacing: .3px; }
+
+section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.tab-title {
+  font-size: 12px;
+  color: var(--fg);
+  margin-bottom: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.swatch {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.swatch:hover { border-color: rgba(255, 255, 255, .45); }
+.swatch.active { border-color: #fff; box-shadow: 0 0 0 2px rgba(255, 255, 255, .25); }
+
+.row { display: flex; align-items: center; gap: 8px; }
+
+input[type="text"], textarea {
+  flex: 1;
+  width: 100%;
+  background: #15171a;
+  color: var(--fg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 5px 7px;
+  font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  resize: vertical;
+}
+
+input[type="text"]:focus, textarea:focus { border-color: var(--accent); outline: none; }
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.hint { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+button.ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px 9px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+button.ghost:hover { color: var(--fg); border-color: var(--accent); }
+
+
+.switch { position: relative; display: inline-block; width: 38px; height: 21px; flex: none; }
+.switch.small { width: 32px; height: 18px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.switch span {
+  position: absolute;
+  inset: 0;
+  background: #3a3f46;
+  border-radius: 999px;
+  transition: background .15s;
+}
+
+.switch span::before {
+  content: "";
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  left: 3px;
+  top: 3px;
+  background: #d8d8d8;
+  border-radius: 50%;
+  transition: transform .15s;
+}
+
+.switch.small span::before { height: 12px; width: 12px; }
+.switch input:checked + span { background: #2e7d32; }
+.switch input:checked + span::before { transform: translateX(17px); }
+.switch.small input:checked + span::before { transform: translateX(14px); }
+
+ul { list-style: none; margin: 0; padding: 0; max-height: 132px; overflow-y: auto; }
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 0;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+li:hover { background: #2c3037; }
+li .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+li .empty { color: var(--muted); font-style: italic; }
+
+#status { font-size: 11px; color: #ff8a80; min-height: 14px; padding: 0 2px; }
+body.off section:not(#tab-section) { opacity: .55; }
+
+.state { font-size: 12px; margin-bottom: 8px; }
+.state .pill {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  border: 1px solid var(--line);
+}
+.state .pill.plain { color: var(--muted); }
+
+li .label-input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--fg);
+  font: inherit;
+  padding: 1px 4px;
+  border-radius: 4px;
+  min-width: 0;
+}
+li .label-input:hover { border-color: var(--line); }
+li .label-input:focus { border-color: var(--accent); outline: none; background: #15171a; }
+li .count { color: var(--muted); font-size: 11px; flex: none; }
+li .forget {
+  flex: none;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  padding: 2px 4px;
+}
+li .forget:hover { color: #ff8a80; }
+li .dot.clickable { cursor: pointer; }
+
+button.ghost.wide { width: 100%; padding: 6px; margin-bottom: 6px; }

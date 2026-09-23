@@ -1,0 +1,77 @@
+{
+  "manifest_version": 3,
+  "name": "PwnBrave",
+  "version": "0.4.0",
+  "description": "One color per Brave container, sent to Burp as X-PwnFox-Color. Nothing is tagged outside containers. Also controls the profile proxy.",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "tabs",
+    "proxy",
+    "offscreen",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false,
+      "match_about_blank": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/beacon.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "PwnBrave",
+    "default_icon": {
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "commands": {
+    "cycle-color": {
+      "suggested_key": {
+        "default": "Alt+Shift+C"
+      },
+      "description": "Next color for the current tab's container"
+    },
+    "toggle-enabled": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Turn PwnBrave on or off"
+    },
+    "toggle-proxy": {
+      "suggested_key": {
+        "default": "Alt+Shift+B"
+      },
+      "description": "Turn the profile proxy on or off"
+    }
+  }
+}

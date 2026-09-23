@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>PwnBrave</h1>
+    <label class="switch" title="Turn everything on or off (Alt+Shift+P)">
+      <input type="checkbox" id="enabled">
+      <span></span>
+    </label>
+  </header>
+
+  <section id="tab-section">
+    <div class="label">Current tab</div>
+    <div class="tab-title" id="tab-title">-</div>
+    <div class="state" id="tab-state">-</div>
+    <div class="swatches" id="swatches"></div>
+  </section>
+
+  <section>
+    <div class="label">Profile proxy</div>
+    <div class="row">
+      <input type="text" id="proxy-target" placeholder="127.0.0.1:8080" spellcheck="false">
+      <label class="switch small" title="Turn the proxy on or off (Alt+Shift+B)">
+        <input type="checkbox" id="proxy-enabled">
+        <span></span>
+      </label>
+    </div>
+    <label class="check">
+      <input type="checkbox" id="proxy-loopback">
+      Route localhost and 127.0.0.1 too
+    </label>
+    <div class="hint" id="proxy-status">-</div>
+  </section>
+
+  <section>
+    <div class="label">Known containers</div>
+    <ul id="container-list"></ul>
+    <div class="hint" id="registry-hint"></div>
+  </section>
+
+  <button class="ghost wide" id="open-status">Open status page</button>
+  <div id="status"></div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
